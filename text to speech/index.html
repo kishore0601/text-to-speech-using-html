@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    textarea {
+      width: 80%;
+      height: 100px;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    footer {
+      margin-top: 20px;
+      background-color: #2d2d2d;
+      color: white;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Text to Speech Converter</h1>
+    <textarea id="text-input" placeholder="Enter text here..."></textarea><br>
+    <button onclick="speakText()">Speak</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Text to Speech Converter</p>
+  </footer>
+
+  <script>
+    // Function to convert text to speech
+    function speakText() {
+      // Get the input text
+      const text = document.getElementById("text-input").value;
+
+      // Create a new SpeechSynthesisUtterance object
+      const utterance = new SpeechSynthesisUtterance(text);
+
+      // Optionally, set properties like language, rate, and pitch
+      utterance.lang = "en-US"; // English language
+      utterance.rate = 1; // Speed (1 is normal)
+      utterance.pitch = 1; // Pitch (1 is normal)
+
+      // Speak the text
+      window.speechSynthesis.speak(utterance);
+    }
+  </script>
+
+</body>
+</html>
